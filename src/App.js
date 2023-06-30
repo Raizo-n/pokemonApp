@@ -4,7 +4,7 @@ import { useState } from "react";
 import Axios from "axios";
 
 function App() {
-  const [pokemonName, setPokemonName] = useState("");
+  let [pokemonName, setPokemonName] = useState("");
   const [pokemonChosen, setPokemonChosen] = useState(false);
   const [pokemonInfo, setPokemonInfo] = useState({
     name: "",
@@ -17,7 +17,8 @@ function App() {
   });
 
   const searchPokemon = () => {
-    Axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`).then(
+    const lowercasePokemonName = pokemonName.toLowerCase();
+    Axios.get(`https://pokeapi.co/api/v2/pokemon/${lowercasePokemonName}`).then(
       (response) => {
         setPokemonInfo({
           name: pokemonName,
@@ -46,7 +47,7 @@ function App() {
       </div>
       <div>
         {!pokemonChosen ? (
-          <h1>Oops, we couldn't find a Pokemon...</h1>
+          <h1 className="error-message">Oops, we couldn't find a Pokemon...</h1>
         ) : (
           <div className="display">
             <h1>{pokemonInfo.name}</h1>
