@@ -44,6 +44,10 @@ body {
     cursor: pointer;
 }
 
+.error-message{
+    text-align: center;
+}
+
 .display {
     display: flex;
     flex-direction: column;
