@@ -6,6 +6,7 @@ body {
 .App {
   display: flex;
   justify-content: center;
+  flex-direction: column;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 25px;
 }
@@ -41,4 +42,10 @@ body {
     border-radius: 10px;
     border: 1px solid aquamarine;
     cursor: pointer;
+}
+
+.display {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
