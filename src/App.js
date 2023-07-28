@@ -1,8 +1,11 @@
 import React from "react";
+import './App.css';
 
 function App() {
   return (
-    null
+    <div className="App">
+      <h1>Pokemon Stats</h1>
+    </div>
   );
 }
 
