@@ -23,9 +23,9 @@ function App() {
           name: pokemonName,
           species: response.data.species.name,
           img: response.data.sprites.front_default,
-          hp: response.data.stats[0].base_stats,
-          attack: response.data.stats[1].base_stats,
-          defense: response.data.stats[2].base_stats,
+          hp: response.data.stats[0].base_stat,
+          attack: response.data.stats[1].base_stat,
+          defense: response.data.stats[2].base_stat,
           type: response.data.types[0].type.name,
         });
         setPokemonChosen(true);
@@ -44,11 +44,19 @@ function App() {
           </button>
         </div>
       </div>
-      <div className="display">
+      <div>
         {!pokemonChosen ? (
           <h1>Oops, we couldn't find a Pokemon...</h1>
         ) : (
-          <h1>{pokemonName}</h1>
+          <div className="display">
+            <h1>{pokemonInfo.name}</h1>
+            <img src={pokemonInfo.img} />
+            <h3>Species: {pokemonInfo.species}</h3>
+            <h3>Type: {pokemonInfo.type}</h3>
+            <h3>Attack: {pokemonInfo.attack}</h3>
+            <h3>Defense: {pokemonInfo.defense}</h3>
+            <h3>HP: {pokemonInfo.hp}</h3>
+          </div>
         )}
       </div>
     </div>
